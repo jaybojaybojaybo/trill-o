@@ -16,6 +16,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { routing } from './app.routing';
 
 import { CollapseModule, BsDropdownModule } from 'ngx-bootstrap';
+import { ListsComponent } from './lists/lists.component';
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -30,7 +31,8 @@ export const firebaseConfig = {
     NavbarComponent,
     WelcomeComponent,
     BoardsComponent,
-    BoardViewComponent
+    BoardViewComponent,
+    ListsComponent
   ],
   imports: [
     BrowserModule,
