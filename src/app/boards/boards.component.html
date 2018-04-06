@@ -10,14 +10,12 @@
 
 <div class="album py-5 bg-light">
   <div class="row">
-    <div class="col-md-4" *ngFor="let board of boards | async">
-      <a routerLink="/board-view/{{board.id}}">
-        <div class="card mb-4 box-shadow">
-          <div class="card-body">
-            <p class="card-text">{{board.name}}</p>
-          </div>
+    <div class="col-md-4" *ngFor="let board of boards | async" (click)="goToBoardView(board)">
+      <div class="card mb-4 box-shadow">
+        <div class="card-body">
+          <p class="card-text">{{board.name}}</p>
         </div>
-      </a>
+      </div>
     </div>
   </div>
 </div>

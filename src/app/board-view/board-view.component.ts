@@ -9,7 +9,7 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
   selector: 'app-board-view',
   templateUrl: './board-view.component.html',
   styleUrls: ['./board-view.component.css'],
-  providers: [BoardService]
+  providers: [ BoardService ]
 })
 export class BoardViewComponent implements OnInit {
   boardId: string;

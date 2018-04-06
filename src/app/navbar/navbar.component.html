@@ -11,10 +11,10 @@
       <li class="nav-item">
         <a class="nav-link">Those</a>
       </li>
-      <li class="nav-item dropdown" ngbDropdown>
-        <a class="nav-link dropdown-toggle" id="dropdown01" ngbDropdownToggle>Boards</a>
-        <div class="dropdown-menu" aria-labelledby="dropdown01" ngbDropdownMenu>
-          <a *ngFor="let board of boards" class="dropdown-item" routerLink="board-view/{{board.id}}">{{board.name}}</a>
+      <li class="nav-item dropdown" (click)="boardsCollapsed = !boardsCollapsed">
+        <a class="nav-link dropdown-toggle" id="dropdown01">Boards</a>
+        <div class="dropdown-menu" aria-labelledby="dropdown01" [collapse]=boardsCollapsed>
+          <a *ngFor="let board of boards | async" class="dropdown-item" (click)="goToBoardView(board)">{{board.name}}</a>
         </div>
       </li>
     </ul>

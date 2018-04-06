@@ -7,16 +7,23 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+  styleUrls: ['./navbar.component.css'],
+  providers: [BoardService]
 })
 export class NavbarComponent implements OnInit {
   isCollapsed = true;
+  boardsCollapsed = true;
 
-  boards: Board[] = [];
+  boards: FirebaseListObservable<any[]>;
 
-  constructor() { }
+  constructor(private router: Router, private boardService: BoardService) { }
 
   ngOnInit() {
+    this.boards = this.boardService.getBoards();
   }
+
+  goToBoardView(clickedBoard) {
+    this.router.navigate(['board-view', clickedBoard.$key]);
+  };
 
 }
