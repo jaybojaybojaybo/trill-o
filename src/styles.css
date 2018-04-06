@@ -1,1 +1,18 @@
-/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+
+body {
+   padding-top: 80px;
+   background: url('http://media.tiffany.com/is/image/Tiffany/12578539_16342_ED_M?$EcomItemL2$&id=OiQqf3&fmt=jpg&fit=constrain,1&wid=1308&hei=1308');
+   background-repeat: no-repeat;
+   background-size: cover;
+}
+
+.starter-template {
+    padding: 3rem 1.5rem;
+    text-align: center;
+}
+
+img {
+  max-height: 100%;
+  max-width: 100%;
+}

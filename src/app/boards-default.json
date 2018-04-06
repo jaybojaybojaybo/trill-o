@@ -1,0 +1,8 @@
+{ "boards": [{
+    "name": "Work"
+    }, {
+    "name": "Family"
+    }, {
+    "name": "Chores"
+  }]
+}
