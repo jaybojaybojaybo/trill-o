@@ -1,4 +1,5 @@
 export class Board {
-  id: number;
-  name: string;
+  constructor (
+    public name: string
+  ) { }
 }

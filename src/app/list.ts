@@ -1,4 +1,5 @@
 export class List {
-    id: number;
-    name: string;
-  }
+  constructor (
+    public name: string
+  ) { }
+}

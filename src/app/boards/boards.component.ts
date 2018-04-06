@@ -24,4 +24,8 @@ export class BoardsComponent implements OnInit {
     this.router.navigate(['board-view', clickedBoard.$key]);
   };
 
+  addBoard(name: string){
+    let newBoard: Board = new Board(name);
+    this.boardService.addBoard(newBoard);
+  }
 }
