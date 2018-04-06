@@ -13,8 +13,7 @@
     <div class="col-md-4" *ngFor="let list of lists | async">
       <div class="card mb-4 box-shadow">
         <div class="card-body">
-          <p class="card-text">{{list.$key}}</p>
-          <p class="card-text">{{list.child}}</p>
+          <p class="card-text">{{list.key}}</p>
         </div>
       </div>
     </div>

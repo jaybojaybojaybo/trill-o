@@ -40,11 +40,23 @@ export class BoardService {
 
   //Lists Methods
   getLists(boardId: string){
-    let boardsListsList = this.database.list('boards-lists'); 
-    // let listsList = boardsListsRef.on('boardId', function(snapshot){
-    //   return snapshot.val();
-    // });
-    console.log(boardId);
-    return boardsListsList;
+    let boardsListsList = this.database.list('boards-lists'); //generates the boards-lists table associations boardId as key, listId as value
+    let boardsListsRef = this.database.database.ref('boards-lists'); //this references the exact path of the boards-lists table
+    console.log(boardsListsRef.toString());
+    let listIds = []; //this will be the destination for all listIds that are retrieved from the following method.
+
+    let keys = boardsListsRef.on('child_added', function(snapshot){
+      listIds.push(snapshot.val());
+      console.log(snapshot.val());
+    });
+    console.log("this is listIds: " +listIds); //this currently returns all objects in boards-lists - how to get the values?
+    
+    listIds.forEach(function(listId){
+      let newList = this.listService.getListById(listId);
+      this.lists.push(newList);
+    })
+    console.log("this is this.lists: " + this.lists);
+    
+    return this.lists;
   }
 }

@@ -30,7 +30,10 @@ export class ListsComponent implements OnInit {
     this.route.params.forEach((urlParameters) => {
       this.boardId = urlParameters['id'];
     });
-    this.lists = this.boardService.getLists(this.boardId);    
+    this.lists = this.boardService.getLists(this.boardId); 
+    for(let list in this.lists){
+      console.log(list);
+    }   
   }
 
 }

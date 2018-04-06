@@ -45,7 +45,7 @@ export const firebaseConfig = {
     CollapseModule.forRoot(),
     BsDropdownModule.forRoot()
   ],
-  providers: [ ListService],
+  providers: [ ListService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
