@@ -1,3 +1,21 @@
-<p>
-  lists works!
-</p>
+<div>
+  <label>List name:
+    <input #listName />
+  </label>
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button (click)="add(listName.value); listName.value=''">
+    add
+  </button>
+</div>
+
+<div class="album py-5 bg-light">
+  <div class="row">
+    <div class="col-md-4" *ngFor="let list of lists | async" (click)="goToListView(list)">
+      <div class="card mb-4 box-shadow">
+        <div class="card-body">
+          <p class="card-text">{{list.name}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

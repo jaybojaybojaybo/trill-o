@@ -4,5 +4,19 @@
     "name": "Family"
     }, {
     "name": "Chores"
+  }],
+  "lists": [{
+    "name": "Work - meetings"
+    }, {
+    "name": "Family - vacation"
+    }, {
+    "name": "Chores - dishes"
+  }],
+  "cards": [{
+    "name": "meetings - prep"
+    }, {
+    "name": "vacation - tickets"
+    }, {
+    "name": "dishes - do"
   }]
 }
