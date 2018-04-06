@@ -17,6 +17,7 @@ import { routing } from './app.routing';
 
 import { CollapseModule, BsDropdownModule } from 'ngx-bootstrap';
 import { ListsComponent } from './lists/lists.component';
+import { ListService } from './list.service';
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -44,7 +45,7 @@ export const firebaseConfig = {
     CollapseModule.forRoot(),
     BsDropdownModule.forRoot()
   ],
-  providers: [],
+  providers: [ ListService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

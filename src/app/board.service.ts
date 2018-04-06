@@ -1,12 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Board } from './board';
+import { List } from './list';
+import { ListService } from './list.service';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 
 @Injectable()
 export class BoardService {
   boards: FirebaseListObservable<any[]>;
+  lists: FirebaseListObservable<any[]>;
 
-  constructor(private database: AngularFireDatabase) {
+  constructor(private database: AngularFireDatabase, private listService: ListService) {
     this.boards = database.list('boards')
   }
 
@@ -32,5 +35,16 @@ export class BoardService {
   deleteBoard(localBoardToDelete){
     let boardEntryInFirebase = this.getBoardById(localBoardToDelete.$key);
     boardEntryInFirebase.remove();
+  }
+
+
+  //Lists Methods
+  getLists(boardId: string){
+    let boardsListsList = this.database.list('boards-lists'); 
+    // let listsList = boardsListsRef.on('boardId', function(snapshot){
+    //   return snapshot.val();
+    // });
+    console.log(boardId);
+    return boardsListsList;
   }
 }

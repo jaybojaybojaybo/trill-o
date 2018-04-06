@@ -10,10 +10,11 @@
 
 <div class="album py-5 bg-light">
   <div class="row">
-    <div class="col-md-4" *ngFor="let list of lists | async" (click)="goToListView(list)">
+    <div class="col-md-4" *ngFor="let list of lists | async">
       <div class="card mb-4 box-shadow">
         <div class="card-body">
-          <p class="card-text">{{list.name}}</p>
+          <p class="card-text">{{list.$key}}</p>
+          <p class="card-text">{{list.child}}</p>
         </div>
       </div>
     </div>
