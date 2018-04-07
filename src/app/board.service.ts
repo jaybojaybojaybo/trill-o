@@ -37,8 +37,8 @@ export class BoardService {
     this.boards.push(board)
   }
 
-  updateBoard(key: string, value: any): void {
-    this.boards.update(key, value)
+  updateBoard(board: Board): void {
+    this.boards.update(board.$key, {name: board.name})
   }
 
   deleteBoard(key: string): void {

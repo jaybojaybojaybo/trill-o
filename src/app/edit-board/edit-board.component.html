@@ -2,10 +2,26 @@
     <div class="d-flex justify-content-between align-items-center">
         <div class="btn-group">
             <input type="text" placeholder="update name">
-            <button type="button" class="btn btn-sm btn-outline-secondary" (click)="updateBoard(selectedBoard)">updateBoard</button>
+            <button type="button" class="btn btn-sm btn-outline-secondary" (click)="updateBoard(board)">updateBoard</button>
         </div> 
     </div>
 </div> -->
 
-<input placeholder="Edit Name" class="form-control" [(ngModel)]="board.name" required minlength="2" maxlength="23" #name='ngModel' autofocus>
-<button class="btn btn-primary" (click)='updateBoard(name)'>Update</button>
+<!-- <input placeholder="Edit Name" class="form-control" required minlength="2" maxlength="23" autofocus>
+<button class="btn btn-primary" (click)='updateBoard(board)'>Update</button> -->
+
+<form #boardForm="ngForm" (ngSubmit)="onSubmit(boardForm)">
+        <input type="hidden" name="$key" #$key="ngModel" [(ngModel)]="this.boardId">
+      <div class="form-group">
+        <label>Name</label>
+        <input class="form-control" name="name" #name="ngModel" [(ngModel)]="boardService.board.name" placeholder="Full Name" required>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-default" type="submit" [disabled]="!boardForm.valid">
+          <i class="fa fa-floppy-o"></i>
+           Submit</button>
+        <button class="btn btn-default" type="button" (click)="resetForm(boardForm)">
+          <i class="fa fa-repeat"></i>
+           Reset</button>
+      </div>
+    </form>

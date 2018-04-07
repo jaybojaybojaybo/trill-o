@@ -39,11 +39,6 @@ export class BoardViewComponent implements OnInit{
     this.boardService.addList(newList);
   }
 
-  updateBoardName(name: string) {
-    let newName = name;
-    this.boardService.updateBoard(this.board.$key, { $value: newName})
-  }
-
   deleteBoard() {
     this.boardService.deleteBoard(this.boardId)
   }

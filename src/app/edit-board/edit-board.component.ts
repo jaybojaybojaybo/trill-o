@@ -6,6 +6,7 @@ import { BoardService } from '../board.service';
 import { List } from '../list';
 import { ListService } from '../list.service';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-edit-board',
@@ -14,7 +15,7 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
   providers: [ BoardService, ListService ]
 })
 export class EditBoardComponent implements OnInit{
-  @Input() board: Board;
+  @Input() selectedBoard: Board;
   currentRoute: string = this.router.url;
 
   boardId: string;
@@ -36,8 +37,21 @@ export class EditBoardComponent implements OnInit{
     console.log(this.boardId);
   }
 
-  updateName(string){
-    this.boardService.updateBoard(this.board.$key, {name: string});
+  updateBoard(selectedBoard){
+    this.boardService.updateBoard(selectedBoard);
+  }
+
+  onSubmit(boardForm: NgForm) {
+    if (boardForm.value.$key == null)
+      this.boardService.createBoard(boardForm.value);
+    else
+      this.boardService.updateBoard(boardForm.value);
+    this.router.navigate(['board-view', boardForm.value.$key])
+  }
+ 
+  resetForm(boardForm?: NgForm) {
+    if (boardForm != null)
+      boardForm.reset();
   }
 }
 
