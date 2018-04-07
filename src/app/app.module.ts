@@ -18,6 +18,8 @@ import { routing } from './app.routing';
 import { CollapseModule, BsDropdownModule } from 'ngx-bootstrap';
 import { ListsComponent } from './lists/lists.component';
 import { ListService } from './list.service';
+import { EditBoardComponent } from './edit-board/edit-board.component';
+import { CreateBoardComponent } from './create-board/create-board.component';
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -33,7 +35,9 @@ export const firebaseConfig = {
     WelcomeComponent,
     BoardsComponent,
     BoardViewComponent,
-    ListsComponent
+    ListsComponent,
+    EditBoardComponent,
+    CreateBoardComponent
   ],
   imports: [
     BrowserModule,

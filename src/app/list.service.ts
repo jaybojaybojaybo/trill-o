@@ -5,18 +5,24 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
 @Injectable()
 export class ListService {
   lists: FirebaseListObservable<any[]>;
+  boardsLists: FirebaseListObservable<any[]>;
 
   constructor(private database: AngularFireDatabase) {
-    this.lists = database.list('lists')
+    this.lists = database.list('lists'),
+    this.boardsLists = database.list('boards-lists')
   }
 
   getLists(){
     return this.lists;
   }
 
-  addList(newList: List) {
-    this.lists.push(newList);
-  }
+  // addList(boardId: string, newList: List) {
+  //   this.lists.push(newList);
+  //   // let newBoardsListsItem = [{
+
+  //   // }]
+  //   this.boardsLists.push(newBoardsListsItem);
+  // }
 
   getListById(listId: string){
     return this.database.object('lists/' + listId);

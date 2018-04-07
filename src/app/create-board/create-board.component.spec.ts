@@ -1,20 +1,20 @@
 // import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-// import { BoardsComponent } from './boards.component';
+// import { CreateBoardComponent } from './create-board.component';
 
-// describe('BoardsComponent', () => {
-//   let component: BoardsComponent;
-//   let fixture: ComponentFixture<BoardsComponent>;
+// describe('CreateBoardComponent', () => {
+//   let component: CreateBoardComponent;
+//   let fixture: ComponentFixture<CreateBoardComponent>;
 
 //   beforeEach(async(() => {
 //     TestBed.configureTestingModule({
-//       declarations: [ BoardsComponent ]
+//       declarations: [ CreateBoardComponent ]
 //     })
 //     .compileComponents();
 //   }));
 
 //   beforeEach(() => {
-//     fixture = TestBed.createComponent(BoardsComponent);
+//     fixture = TestBed.createComponent(CreateBoardComponent);
 //     component = fixture.componentInstance;
 //     fixture.detectChanges();
 //   });

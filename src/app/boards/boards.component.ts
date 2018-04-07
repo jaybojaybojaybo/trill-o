@@ -11,21 +11,25 @@ import { Router } from '@angular/router';
   providers: [ BoardService ]
 })
 export class BoardsComponent implements OnInit {
-  boards: FirebaseListObservable<any[]>;
+  public boards: FirebaseListObservable<Board[]>;
   currentRoute: string = this.router.url;
 
   constructor(private router: Router, private boardService: BoardService) { }
 
   ngOnInit() {
-    this.boards = this.boardService.getBoards();
+    this.boards = this.boardService.getBoardsList();
   }
 
   goToBoardView(clickedBoard) {
     this.router.navigate(['board-view', clickedBoard.$key]);
   };
 
-  addBoard(name: string){
-    let newBoard: Board = new Board(name);
-    this.boardService.addBoard(newBoard);
+  // addBoard(name: string){
+  //   let newBoard: Board = new Board();
+  //   this.boardService.createBoard(newBoard);
+  // }
+
+  deleteBoards() {
+    this.boardService.deleteAllBoards()
   }
 }

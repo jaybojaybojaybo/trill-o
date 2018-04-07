@@ -1,11 +1,5 @@
 <div>
-  <label>Board name:
-    <input #boardName />
-  </label>
-  <!-- (click) passes input value to add() and then clears the input -->
-  <button (click)="addBoard(boardName.value); boardName.value=''">
-    add
-  </button>
+  <app-create-board></app-create-board>
 </div>
 
 <div class="album py-5 bg-light">
@@ -13,9 +7,10 @@
     <div class="col-md-4" *ngFor="let board of boards | async" (click)="goToBoardView(board)">
       <div class="card mb-4 box-shadow">
         <div class="card-body">
-          <p class="card-text">{{board.name}}</p>
+          <app-board-view [board]='board'></app-board-view>
         </div>
       </div>
     </div>
   </div>
 </div>
+<button (click)='deleteBoards()'>Delete All Boards</button>

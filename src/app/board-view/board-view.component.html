@@ -1,23 +1,8 @@
-<div class="card header" style="width: 42rem">
-    <div class="card-body">
-        <h3 class="card-title">{{(boardToDisplay | async)?.name}}</h3>
-        <div class="d-flex justify-content-between align-items-center">
-        <div class="btn-group">
-            <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-            <button type="button" class="btn btn-sm btn-outline-secondary">Delete</button>
-        </div>
-        </div>
-    </div>
-    <div>
-        <label>List name:
-            <input #listName />
-        </label>
-        <!-- (click) passes input value to add() and then clears the input -->
-        <button (click)="add(listName.value); listName.value=''">
-            add
-        </button>
-    </div>
+<h3>{{(boardToDisplay | async)?.name}}</h3>
+<div class="container" *ngIf="currentRoute === '/welcome'">
+    <h3>{{board.name}}</h3>
 </div>
 
 
-<app-lists></app-lists>
+<app-edit-board [board]='board'></app-edit-board>
+<button (click)='deleteBoard()'>Delete</button>

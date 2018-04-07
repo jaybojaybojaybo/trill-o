@@ -2,48 +2,60 @@ import { Injectable } from '@angular/core';
 import { Board } from './board';
 import { List } from './list';
 import { ListService } from './list.service';
-import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
-import * as firebase from 'firebase';
+import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 
-const db = AngularFireDatabase;
 
 @Injectable()
 export class BoardService {
-  boards: FirebaseListObservable<any[]>;
-  lists: FirebaseListObservable<any[]>;
+  private basePath: string = '/boards';
 
-  constructor(private database: AngularFireDatabase, private listService: ListService) {
-    this.boards = database.list('boards')
+  boards: FirebaseListObservable<Board[]> = null;
+  board: FirebaseObjectObservable<Board> = null;
+  lists: FirebaseListObservable<List[]>;
+  list: FirebaseObjectObservable<List>;
+
+  constructor(private db: AngularFireDatabase, private listService: ListService) {
+    this.boards = db.list('boards'),
+    this.lists = db.list('lists')
   }
 
-  getBoards(){
-    return this.boards;
-  }
-
-  addBoard(newBoard: Board) {
-    this.boards.push(newBoard);
-  }
-
-  getBoardById(boardId: string){
-    return this.database.object('boards/' + boardId);
-  }
-
-  updateBoard(localUpdatedBoard){
-    let boardEntryInFirebase = this.getBoardById(localUpdatedBoard.$key);
-    boardEntryInFirebase.update({
-      name: localUpdatedBoard.name,
+  //angularfirebase.com tutorial info
+  getBoardsList(query={}): FirebaseListObservable<Board[]> {
+    this.boards = this.db.list(this.basePath, {
+      query: query
     });
+    return this.boards
   }
 
-  deleteBoard(localBoardToDelete){
-    let boardEntryInFirebase = this.getBoardById(localBoardToDelete.$key);
-    boardEntryInFirebase.remove();
+  getBoard(key: string): FirebaseObjectObservable<Board> {
+    const boardPath = `${this.basePath}/${key}`;
+    this.board = this.db.object(boardPath)
+    return this.board
   }
 
+  createBoard(board: Board): void {
+    this.boards.push(board)
+  }
+
+  updateBoard(key: string, value: any): void {
+    this.boards.update(key, value)
+  }
+
+  deleteBoard(key: string): void {
+    this.boards.remove(key)
+  }
+
+  deleteAllBoards(): void {
+    this.boards.remove()
+  }
 
   //Lists Methods
   getLists(boardId: string){
-    let lists = this.database.list('boards-lists/' + boardId); //generates the boards-lists table associations boardId as key, listId as value
+    let lists = this.db.list('boards-lists/' + boardId); //generates the boards-lists table associations boardId as key, listId as value
     return lists;
+  }
+
+  addList(newList: List){
+    this.lists.push(newList);
   }
 }

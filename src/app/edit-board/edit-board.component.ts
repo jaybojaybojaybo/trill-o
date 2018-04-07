@@ -8,12 +8,12 @@ import { ListService } from '../list.service';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 
 @Component({
-  selector: 'app-board-view',
-  templateUrl: './board-view.component.html',
-  styleUrls: ['./board-view.component.css'],
+  selector: 'app-edit-board',
+  templateUrl: './edit-board.component.html',
+  styleUrls: ['./edit-board.component.css'],
   providers: [ BoardService, ListService ]
 })
-export class BoardViewComponent implements OnInit{
+export class EditBoardComponent implements OnInit{
   @Input() board: Board;
   currentRoute: string = this.router.url;
 
@@ -31,25 +31,13 @@ export class BoardViewComponent implements OnInit{
     this.route.params.forEach((urlParameters) => {
       this.boardId = urlParameters['id'];
     });
-    this.boardToDisplay = this.boardService.getBoard(this.boardId); 
+    this.boardToDisplay = this.boardService.getBoard(this.boardId);
+    // console.log(this.boardToDisplay);
+    console.log(this.boardId);
   }
 
-  addList(name: string){
-    let newList: List = new List(name);
-    this.boardService.addList(newList);
+  updateName(string){
+    this.boardService.updateBoard(this.board.$key, {name: string});
   }
-
-  updateBoardName(name: string) {
-    let newName = name;
-    this.boardService.updateBoard(this.board.$key, { $value: newName})
-  }
-
-  deleteBoard() {
-    this.boardService.deleteBoard(this.boardId)
-  }
-
-  goToEditBoard(clickedBoard) {
-    this.router.navigate(['edit-board', clickedBoard.$key]);
-  };
-
 }
+

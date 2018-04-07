@@ -19,7 +19,7 @@ export class NavbarComponent implements OnInit {
   constructor(private router: Router, private boardService: BoardService) { }
 
   ngOnInit() {
-    this.boards = this.boardService.getBoards();
+    this.boards = this.boardService.getBoardsList();
   }
 
   goToBoardView(clickedBoard) {

@@ -1,34 +1,28 @@
-{ "boards": [{
-    "name": "Work"
-    }, {
-    "name": "Family"
-    }, {
-    "name": "Chores"
-  }],
-  "lists": [{
-    "name": "Work - meetings"
-    }, {
-    "name": "Family - vacation"
-    }, {
-    "name": "Chores - dishes"
-    },{
-    "name": "Work - reports"
+{
+  "boards" : {
+    "0" : {
+      "name" : "Work"
+    },
+    "1" : {
+      "name" : "Family"
+    },
+    "2" : {
+      "name" : "Chores"
+    },
+    "-L9SKlWCoaCzbFg6QysS" : {
+      "name" : "Coding"
     }
-  ],
-  "cards": [{
-    "name": "meetings - prep"
-    }, {
-    "name": "vacation - tickets"
-    }, {
-    "name": "dishes - do"
-  }],
-  "boards-lists": [{
-    "0": "0"
-    }, {
-    "1": "1"
-    }, {
-    "2": "2"
-    }, {
-    "0": "3"  
-  }]
+  },
+  "boards-lists" : [ [ "meeting", null, null, "reports" ], [ null, "vacation" ], {
+    "2" : "dishes"
+  } ],
+  "lists" : [ {
+    "name" : "Work - meetings"
+  }, {
+    "name" : "vacation"
+  }, {
+    "name" : "dishes"
+  }, {
+    "name" : "reports"
+  } ]
 }
