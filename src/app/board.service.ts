@@ -43,8 +43,7 @@ export class BoardService {
 
   //Lists Methods
   getLists(boardId: string){
-    let boardsListsList = this.database.list('boards-lists/' + boardId); //generates the boards-lists table associations boardId as key, listId as value
-
-    return boardsListsList;
+    let lists = this.database.list('boards-lists/' + boardId); //generates the boards-lists table associations boardId as key, listId as value
+    return lists;
   }
 }
