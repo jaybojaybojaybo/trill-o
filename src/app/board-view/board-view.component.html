@@ -5,4 +5,8 @@
 
 
 <app-edit-board [selectedBoard]='board'></app-edit-board>
-<button (click)='deleteBoard()'>Delete</button>
+<button (click)='deleteBoard()'>Delete Board</button>
+
+<app-create-list></app-create-list>
+
+<app-lists [boardForId]='board'></app-lists>

@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Board } from '../board';
 import { BoardService } from '../board.service';
 import { List } from '../list';
 import { ListService } from '../list.service';
-import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 
 
@@ -14,22 +14,29 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
   providers: [BoardService, ListService]
 })
 export class ListsComponent implements OnInit {
-  boardId: string;
-  listsToDisplay;
-  lists: FirebaseListObservable<any[]>;
+  @Input() boardForId: Board;
   currentRoute: string = this.router.url;
+  private boardsListsPath: string = '/boards-lists';
+
+  boardId: string;
+  listId: string;
+  listsToDisplay;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router, 
     private boardService: BoardService, 
     private listService: ListService
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.route.params.forEach((urlParameters) => {
       this.boardId = urlParameters['id'];
     });
-    this.lists = this.boardService.getLists(this.boardId);   
+    this.listsToDisplay = this.boardService.getLists(this.boardId);     
+  }
+
+  deleteList() {
+    this.listService.deleteList(this.listId)
   }
 }

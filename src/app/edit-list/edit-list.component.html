@@ -1,0 +1,14 @@
+<form #listForm="ngForm" (ngSubmit)="onSubmit(listForm)">
+    <input type="hidden" name="$key" #$key="ngModel" [(ngModel)]="this.listId">
+    <div class="form-group">
+    <input class="form-control" name="name" #name="ngModel" [(ngModel)]="listService.list.name" placeholder="Edit List Name" required>
+    </div>
+    <div class="form-group">
+    <button class="btn btn-default" type="submit" [disabled]="!listForm.valid">
+        <i class="fa fa-floppy-o"></i>
+        Submit</button>
+    <button class="btn btn-default" type="button" (click)="resetForm(listForm)">
+        <i class="fa fa-repeat"></i>
+        Reset</button>
+    </div>
+</form>

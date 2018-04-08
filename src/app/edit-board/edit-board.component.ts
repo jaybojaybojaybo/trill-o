@@ -34,7 +34,7 @@ export class EditBoardComponent implements OnInit{
     });
     this.boardToDisplay = this.boardService.getBoard(this.boardId);
     // console.log(this.boardToDisplay);
-    console.log(this.boardId);
+    // console.log(this.boardId);
   }
 
   updateBoard(selectedBoard){

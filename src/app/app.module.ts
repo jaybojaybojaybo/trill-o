@@ -7,7 +7,10 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { BoardsComponent } from './boards/boards.component';
+import { BoardService } from './board.service';
 import { BoardViewComponent } from './board-view/board-view.component';
+import { ListsComponent } from './lists/lists.component';
+import { ListService } from './list.service';
 
 import { masterFirebaseConfig } from '../api-keys';
 import { AngularFireModule } from 'angularfire2';
@@ -16,10 +19,10 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { routing } from './app.routing';
 
 import { CollapseModule, BsDropdownModule } from 'ngx-bootstrap';
-import { ListsComponent } from './lists/lists.component';
-import { ListService } from './list.service';
 import { EditBoardComponent } from './edit-board/edit-board.component';
 import { CreateBoardComponent } from './create-board/create-board.component';
+import { CreateListComponent } from './create-list/create-list.component';
+import { EditListComponent } from './edit-list/edit-list.component';
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -37,7 +40,9 @@ export const firebaseConfig = {
     BoardViewComponent,
     ListsComponent,
     EditBoardComponent,
-    CreateBoardComponent
+    CreateBoardComponent,
+    CreateListComponent,
+    EditListComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +54,7 @@ export const firebaseConfig = {
     CollapseModule.forRoot(),
     BsDropdownModule.forRoot()
   ],
-  providers: [ ListService ],
+  providers: [ BoardService, ListService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,5 +1,4 @@
 export class List {
-  constructor (
-    public name: string
-  ) { }
+  $key: string;
+  name: string;
 }

@@ -4,15 +4,14 @@ import { List } from './list';
 import { ListService } from './list.service';
 import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 
-
 @Injectable()
 export class BoardService {
   private basePath: string = '/boards';
 
   boards: FirebaseListObservable<Board[]> = null;
   board: FirebaseObjectObservable<Board> = null;
-  lists: FirebaseListObservable<List[]>;
-  list: FirebaseObjectObservable<List>;
+  lists: FirebaseListObservable<List[]> = null;
+  list: FirebaseObjectObservable<List> = null;
 
   constructor(private db: AngularFireDatabase, private listService: ListService) {
     this.boards = db.list('boards'),

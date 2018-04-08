@@ -35,7 +35,7 @@ export class BoardViewComponent implements OnInit{
   }
 
   addList(name: string){
-    let newList: List = new List(name);
+    let newList: List = new List();
     this.boardService.addList(newList);
   }
 
