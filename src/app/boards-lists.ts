@@ -1,5 +1,11 @@
 export class BoardsListsPair {
-    key: string;
-    $key: string;
-    $value: string;
+    constructor(
+        public key: string,
+        public $key: string,
+        public $value: string
+    ) {
+        this.key = key;
+        this.$key = $key;
+        this.$value = $value;
+    }
   }

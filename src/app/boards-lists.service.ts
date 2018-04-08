@@ -15,7 +15,6 @@ export class BoardsListsService {
   }
 
   createBoardsListsPair(boardsListsPair: BoardsListsPair) {
-    this.boardsListsPairs.push(boardsListsPair)
+    this.boardsListsPairs.update(boardsListsPair.key, { [boardsListsPair.$key]: [boardsListsPair.$value] })
   }
-
 }

@@ -7,7 +7,8 @@ import { BoardsListsPair } from '../boards-lists';
 @Component({
   selector: 'app-create-board',
   templateUrl: './create-board.component.html',
-  styleUrls: ['./create-board.component.css']
+  styleUrls: ['./create-board.component.css'],
+  providers: [ BoardsListsService ]
 })
 export class CreateBoardComponent {
 
