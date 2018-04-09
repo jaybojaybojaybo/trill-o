@@ -29,9 +29,8 @@ export class CreateListComponent {
     this.route.params.forEach((urlParameters) => {
       this.boardId = urlParameters['id'];
     });
+    this.list.boardId = this.boardId;
     this.listService.createList(this.list)
-    let newPair = new BoardsListsPair(this.boardId, this.list.$key, this.list.name)
-    this.boardsListsService.createBoardsListsPair(newPair)
     this.list = new List()
   }
 }

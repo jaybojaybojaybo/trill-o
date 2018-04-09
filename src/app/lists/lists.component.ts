@@ -6,7 +6,6 @@ import { ListService } from '../list.service';
 import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-lists',
   templateUrl: './lists.component.html',
@@ -14,13 +13,14 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
   providers: [BoardService, ListService]
 })
 export class ListsComponent implements OnInit {
-  @Input() boardForId: Board;
+  @Input() board: Board;
   currentRoute: string = this.router.url;
-  private boardsListsPath: string = '/boards-lists';
+  public lists: FirebaseListObservable<List[]> = null;
 
   boardId: string;
   listId: string;
   listsToDisplay;
+  count = 0;
 
   constructor(
     private route: ActivatedRoute,
@@ -33,7 +33,7 @@ export class ListsComponent implements OnInit {
     this.route.params.forEach((urlParameters) => {
       this.boardId = urlParameters['id'];
     });
-    this.listsToDisplay = this.boardService.getLists(this.boardId);     
+    this.lists = this.listService.getListsList();
   }
 
   deleteList() {
