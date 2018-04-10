@@ -20,7 +20,6 @@ export class ListsComponent implements OnInit {
   boardId: string;
   listId: string;
   listsToDisplay;
-  count = 0;
 
   constructor(
     private route: ActivatedRoute,
@@ -34,7 +33,6 @@ export class ListsComponent implements OnInit {
       this.boardId = urlParameters['id'];
     });
     this.lists = this.boardService.getListsList(this.boardId)
-      console.log(this.boardId)
   }
 
   deleteList(list) {

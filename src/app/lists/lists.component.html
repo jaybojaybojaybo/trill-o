@@ -6,6 +6,8 @@
           <h3 class="card-text">{{list.name}}</h3>
           <app-edit-list [list]='list'></app-edit-list>
           <button (click)='deleteList(list)'>Delete List</button>
+          <app-cards [listForId]='list'></app-cards>
+          <app-create-card [listForId]='list'></app-create-card>
         </div>
       </div>
     </div>

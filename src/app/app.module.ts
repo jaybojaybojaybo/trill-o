@@ -11,6 +11,8 @@ import { BoardService } from './board.service';
 import { BoardViewComponent } from './board-view/board-view.component';
 import { ListsComponent } from './lists/lists.component';
 import { ListService } from './list.service';
+import { CardsComponent } from './cards/cards.component';
+import { CardService } from './card.service';
 
 import { masterFirebaseConfig } from '../api-keys';
 import { AngularFireModule } from 'angularfire2';
@@ -23,8 +25,7 @@ import { EditBoardComponent } from './edit-board/edit-board.component';
 import { CreateBoardComponent } from './create-board/create-board.component';
 import { CreateListComponent } from './create-list/create-list.component';
 import { EditListComponent } from './edit-list/edit-list.component';
-
-// import {BoardIdPipe} from './boardId.pipe';
+import { CreateCardComponent } from './create-card/create-card.component';
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -45,7 +46,8 @@ export const firebaseConfig = {
     CreateBoardComponent,
     CreateListComponent,
     EditListComponent,
-    // BoardIdPipe
+    CardsComponent,
+    CreateCardComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,7 +59,7 @@ export const firebaseConfig = {
     CollapseModule.forRoot(),
     BsDropdownModule.forRoot()
   ],
-  providers: [ BoardService, ListService ],
+  providers: [ BoardService, ListService, CardService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

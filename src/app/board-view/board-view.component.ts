@@ -34,11 +34,6 @@ export class BoardViewComponent implements OnInit{
     this.boardToDisplay = this.boardService.getBoard(this.boardId); 
   }
 
-  addList(name: string){
-    let newList: List = new List();
-    this.boardService.addList(newList);
-  }
-
   deleteBoard() {
     this.boardService.deleteBoard(this.boardId)
   }

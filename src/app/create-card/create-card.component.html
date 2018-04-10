@@ -1,0 +1,3 @@
+<input placeholder="New Card Name" class="form-control" [(ngModel)]="card.name" required minlength="2" maxlength="23" #name='ngModel' autofocus>
+
+<button class="btn btn-primary" (click)='createCard()'>Create Card</button>

@@ -2,15 +2,13 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ListService } from '../list.service';
 import { List } from '../list';
 import { Board } from '../board';
-import { BoardsListsService } from '../boards-lists.service';
-import { BoardsListsPair } from '../boards-lists';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-list',
   templateUrl: './create-list.component.html',
   styleUrls: ['./create-list.component.css'],
-  providers: [ ListService, BoardsListsService ]
+  providers: [ ListService ]
 })
 export class CreateListComponent {
   @Input() boardForId: Board;
@@ -22,7 +20,6 @@ export class CreateListComponent {
     private route: ActivatedRoute,
     private router: Router, 
     private listService: ListService,
-    private boardsListsService: BoardsListsService
   ) { }
 
   createList() {

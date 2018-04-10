@@ -51,17 +51,13 @@ export class BoardService {
   }
 
   //Lists Methods
-  getListsList(board): FirebaseListObservable<List[]>{
+  getListsList(boardFilter): FirebaseListObservable<List[]>{
     this.lists = this.db.list(this.listPath, {
       query: {
         orderByChild: 'boardId',
-        equalTo: board
+        equalTo: boardFilter
       }
     });
     return this.lists
-  }
-
-  addList(newList: List){
-    this.lists.push(newList);
   }
 }
