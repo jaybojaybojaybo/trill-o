@@ -1,11 +1,11 @@
 <div class="album py-5 bg-light">
   <div class="row">
-    <div class="col-md-4" *ngFor="let list of lists | async | boardId">
+    <div class="col-md-4" *ngFor="let list of lists | async">
       <div class="card mb-4 box-shadow">
         <div class="card-body">
           <h3 class="card-text">{{list.name}}</h3>
-          <app-edit-list [selectedList]='list'></app-edit-list>
-          <button (click)='deleteList()'>Delete List</button>
+          <app-edit-list [list]='list'></app-edit-list>
+          <button (click)='deleteList(list)'>Delete List</button>
         </div>
       </div>
     </div>

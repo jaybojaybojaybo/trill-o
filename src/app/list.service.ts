@@ -29,8 +29,10 @@ export class ListService {
     this.lists.push(list)
   }
 
-  updateList(list: List): void {
-    this.lists.update(list.$key, {name: list.name})
+  updateList(list): void {
+    let listEntryInFirebase = this.getList(list.$key);
+    console.log(list.$key)
+    listEntryInFirebase.update({name: list.name})
   }
 
   deleteList(key: string): void {
@@ -41,4 +43,3 @@ export class ListService {
     this.lists.remove()
   }
 }
-

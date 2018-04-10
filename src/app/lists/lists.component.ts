@@ -24,8 +24,8 @@ export class ListsComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private router: Router, 
-    private boardService: BoardService, 
+    private router: Router,
+    private boardService: BoardService,
     private listService: ListService
   ) {}
 
@@ -36,7 +36,7 @@ export class ListsComponent implements OnInit {
     this.lists = this.listService.getListsList();
   }
 
-  deleteList() {
-    this.listService.deleteList(this.listId)
+  deleteList(list) {
+    this.listService.deleteList(list.$key)
   }
 }

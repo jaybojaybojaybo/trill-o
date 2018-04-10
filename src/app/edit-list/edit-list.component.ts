@@ -15,7 +15,7 @@ import { NgForm } from '@angular/forms';
   providers: [ BoardService, ListService]
 })
 export class EditListComponent implements OnInit {
-  @Input() selectedList: List;
+  @Input() list: List;
   currentRoute: string = this.router.url;
 
   listId: string;
@@ -38,6 +38,7 @@ export class EditListComponent implements OnInit {
 
   updateList(selectedList){
     this.listService.updateList(selectedList);
+    console.log(selectedList.name)
   }
 
   onSubmit(listForm: NgForm) {
@@ -46,7 +47,7 @@ export class EditListComponent implements OnInit {
     else
       this.listService.updateList(listForm.value);
   }
- 
+
   resetForm(listForm?: NgForm) {
     if (listForm != null)
       listForm.reset();

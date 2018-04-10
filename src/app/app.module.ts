@@ -24,7 +24,7 @@ import { CreateBoardComponent } from './create-board/create-board.component';
 import { CreateListComponent } from './create-list/create-list.component';
 import { EditListComponent } from './edit-list/edit-list.component';
 
-import {BoardIdPipe} from './boardId.pipe';
+// import {BoardIdPipe} from './boardId.pipe';
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -45,7 +45,7 @@ export const firebaseConfig = {
     CreateBoardComponent,
     CreateListComponent,
     EditListComponent,
-    BoardIdPipe
+    // BoardIdPipe
   ],
   imports: [
     BrowserModule,

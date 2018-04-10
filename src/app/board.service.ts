@@ -37,7 +37,8 @@ export class BoardService {
   }
 
   updateBoard(board: Board): void {
-    this.boards.update(board.$key, {name: board.name})
+    let boardEntryInFirebase = this.getBoard(board.$key);
+    boardEntryInFirebase.update({name: board.name})
   }
 
   deleteBoard(key: string): void {
