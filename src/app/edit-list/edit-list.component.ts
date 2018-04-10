@@ -38,7 +38,6 @@ export class EditListComponent implements OnInit {
 
   updateList(selectedList){
     this.listService.updateList(selectedList);
-    console.log(selectedList.name)
   }
 
   onSubmit(listForm: NgForm) {

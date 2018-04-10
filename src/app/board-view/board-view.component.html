@@ -7,6 +7,7 @@
 <app-edit-board [selectedBoard]='board'></app-edit-board>
 <button (click)='deleteBoard()'>Delete Board</button>
 
-<app-create-list [boardForId]='board'></app-create-list>
-
-<app-lists [board]='board'></app-lists>
+<div class="container" *ngIf="currentRoute !== '/welcome'">
+  <app-create-list [boardForId]='board'></app-create-list>
+  <app-lists [boardForId]='board'></app-lists>
+</div>

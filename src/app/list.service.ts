@@ -31,7 +31,6 @@ export class ListService {
 
   updateList(list): void {
     let listEntryInFirebase = this.getList(list.$key);
-    console.log(list.$key)
     listEntryInFirebase.update({name: list.name})
   }
 

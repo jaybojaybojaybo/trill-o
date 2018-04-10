@@ -13,7 +13,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
   providers: [BoardService, ListService]
 })
 export class ListsComponent implements OnInit {
-  @Input() board: Board;
+  @Input() boardForId: Board;
   currentRoute: string = this.router.url;
   public lists: FirebaseListObservable<List[]> = null;
 
@@ -33,7 +33,8 @@ export class ListsComponent implements OnInit {
     this.route.params.forEach((urlParameters) => {
       this.boardId = urlParameters['id'];
     });
-    this.lists = this.listService.getListsList();
+    this.lists = this.boardService.getListsList(this.boardId)
+      console.log(this.boardId)
   }
 
   deleteList(list) {

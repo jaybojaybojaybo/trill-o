@@ -7,6 +7,7 @@ import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable }
 @Injectable()
 export class BoardService {
   private basePath: string = '/boards';
+  private listPath: string = '/lists';
 
   boards: FirebaseListObservable<Board[]> = null;
   board: FirebaseObjectObservable<Board> = null;
@@ -50,9 +51,14 @@ export class BoardService {
   }
 
   //Lists Methods
-  getLists(boardId: string){
-    let lists = this.db.list('boards-lists/' + boardId); //generates the boards-lists table associations boardId as key, listId as value
-    return lists;
+  getListsList(board): FirebaseListObservable<List[]>{
+    this.lists = this.db.list(this.listPath, {
+      query: {
+        orderByChild: 'boardId',
+        equalTo: board
+      }
+    });
+    return this.lists
   }
 
   addList(newList: List){
