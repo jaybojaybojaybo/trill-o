@@ -1,8 +1,8 @@
 export var masterFirebaseConfig = {
-  apiKey: "AIzaSyDOqiUXFbTYUPZ_7lolvuYbg_iueTE7lSU",
-    authDomain: "crystal-basket-ball.firebaseapp.com",
-    databaseURL: "https://crystal-basket-ball.firebaseio.com",
-    projectId: "crystal-basket-ball",
-    storageBucket: "crystal-basket-ball.appspot.com",
-    messagingSenderId: "798511775352"
+    apiKey: "AIzaSyBZcndS80cGvo9J5uGQEneYNKXqv0E6jL8",
+    authDomain: "trill-o.firebaseapp.com",
+    databaseURL: "https://trill-o.firebaseio.com",
+    projectId: "trill-o",
+    storageBucket: "trill-o.appspot.com",
+    messagingSenderId: "963660166705"
 };
