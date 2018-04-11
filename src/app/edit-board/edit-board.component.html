@@ -1,15 +1,18 @@
+
+
 <form #boardForm="ngForm" (ngSubmit)="onSubmit(boardForm)">
-    <input type="hidden" name="$key" #$key="ngModel" [(ngModel)]="this.boardId">
-    <div class="form-group">
-    <label>Name</label>
-    <input class="form-control" name="name" #name="ngModel" [(ngModel)]="boardService.board.name" placeholder="Edit Board Name" required>
-    </div>
-    <div class="form-group">
+  <input type="hidden" name="$key" #$key="ngModel" [(ngModel)]="this.boardId">
+  <div class="form-group">
+    <input class="form-control" name="name" #name="ngModel" [(ngModel)]="board" placeholder="Edit Board Name" required>
+  </div>
+  <div class="form-group">
     <button class="btn btn-default" type="submit" [disabled]="!boardForm.valid">
-        <i class="fa fa-floppy-o"></i>
-        Submit</button>
+      <i class="fa fa-floppy-o"></i>
+      Submit
+    </button>
     <button class="btn btn-default" type="button" (click)="resetForm(boardForm)">
-        <i class="fa fa-repeat"></i>
-        Reset</button>
-    </div>
+      <i class="fa fa-repeat"></i>
+      Reset Form
+    </button>
+  </div>
 </form>

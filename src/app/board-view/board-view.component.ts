@@ -36,7 +36,6 @@ export class BoardViewComponent implements OnInit{
 
   deleteBoard() {
     this.boardService.deleteBoard(this.boardId)
-    
     this.router.navigate(['/'])
   }
 

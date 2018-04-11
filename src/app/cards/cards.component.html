@@ -1,8 +1,5 @@
 <div class="container">
-  <ul>
-    <li *ngFor="let card of cards | async">
-      <p>{{card.name}}</p>
-    </li>
-  </ul>
+  <div *ngFor="let card of cards | async">
+      <app-edit-card [card]='card'></app-edit-card>
+  </div>
 </div>
-

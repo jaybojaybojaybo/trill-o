@@ -26,6 +26,7 @@ import { CreateBoardComponent } from './create-board/create-board.component';
 import { CreateListComponent } from './create-list/create-list.component';
 import { EditListComponent } from './edit-list/edit-list.component';
 import { CreateCardComponent } from './create-card/create-card.component';
+import { EditCardComponent } from './edit-card/edit-card.component';
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -48,6 +49,7 @@ export const firebaseConfig = {
     EditListComponent,
     CardsComponent,
     CreateCardComponent,
+    EditCardComponent,
   ],
   imports: [
     BrowserModule,

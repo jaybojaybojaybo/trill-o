@@ -1,0 +1,11 @@
+<form #listForm="ngForm" (ngSubmit)="onSubmit(listForm)">
+    <input type="hidden" name="$key" #$key="ngModel" [(ngModel)]="card.$key">
+    <div class="btn-group">
+      <input class="form-control" name="name" #name="ngModel" [(ngModel)]="card.name" required>
+      <button type="button" class="btn btn-sm btn-outline-secondary" [disabled]="!listForm.valid">
+        <i class="fa fa-floppy-o"></i>
+        Update
+      </button>
+      <button type="button" class="btn btn-sm btn-outline-secondary" (click)="deleteCard(card)">Delete</button>
+    </div>
+</form>

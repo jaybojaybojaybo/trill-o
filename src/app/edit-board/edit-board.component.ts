@@ -15,7 +15,7 @@ import { NgForm } from '@angular/forms';
   providers: [ BoardService, ListService ]
 })
 export class EditBoardComponent implements OnInit{
-  @Input() selectedBoard: Board;
+  @Input() board: Board;
   currentRoute: string = this.router.url;
 
   boardId: string;
@@ -37,8 +37,9 @@ export class EditBoardComponent implements OnInit{
     // console.log(this.boardId);
   }
 
-  updateBoard(selectedBoard){
-    this.boardService.updateBoard(selectedBoard);
+  updateBoard(board){
+    board.$key = this.boardId;
+    this.boardService.updateBoard(board.$key);
   }
 
   onSubmit(boardForm: NgForm) {
@@ -48,10 +49,9 @@ export class EditBoardComponent implements OnInit{
       this.boardService.updateBoard(boardForm.value);
     this.router.navigate(['board-view', boardForm.value.$key])
   }
- 
+
   resetForm(boardForm?: NgForm) {
     if (boardForm != null)
       boardForm.reset();
   }
 }
-

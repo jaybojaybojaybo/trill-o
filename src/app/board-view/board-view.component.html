@@ -1,11 +1,8 @@
 <h3>{{(boardToDisplay | async)?.name}}</h3>
 
-<app-edit-board [selectedBoard]='board'></app-edit-board>
-<div *ngIf="currentRoute !== '/welcome'">
-  <button (click)='deleteBoard()'>Delete Board</button>
-</div>
-
 <div class="container" *ngIf="currentRoute !== '/welcome'">
+  <app-edit-board [board]='board'></app-edit-board>
+  <button (click)='deleteBoard()'>Delete Board</button>
   <app-create-list [boardForId]='board'></app-create-list>
   <app-lists [boardForId]='board'></app-lists>
 </div>
