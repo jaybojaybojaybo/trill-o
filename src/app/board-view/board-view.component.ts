@@ -31,11 +31,13 @@ export class BoardViewComponent implements OnInit{
     this.route.params.forEach((urlParameters) => {
       this.boardId = urlParameters['id'];
     });
-    this.boardToDisplay = this.boardService.getBoard(this.boardId); 
+    this.boardToDisplay = this.boardService.getBoard(this.boardId);
   }
 
   deleteBoard() {
     this.boardService.deleteBoard(this.boardId)
+    
+    this.router.navigate(['/'])
   }
 
   goToEditBoard(clickedBoard) {

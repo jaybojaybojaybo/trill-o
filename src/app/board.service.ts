@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Board } from './board';
 import { List } from './list';
+import { Card } from './card';
 import { ListService } from './list.service';
 import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 
@@ -13,10 +14,13 @@ export class BoardService {
   board: FirebaseObjectObservable<Board> = null;
   lists: FirebaseListObservable<List[]> = null;
   list: FirebaseObjectObservable<List> = null;
+  cards: FirebaseListObservable<Card[]> = null;
+  card: FirebaseObjectObservable<Card> = null;
 
   constructor(private db: AngularFireDatabase, private listService: ListService) {
     this.boards = db.list('boards'),
-    this.lists = db.list('lists')
+    this.lists = db.list('lists'),
+    this.cards = db.list('cards')
   }
 
   //angularfirebase.com tutorial info
@@ -48,6 +52,8 @@ export class BoardService {
 
   deleteAllBoards(): void {
     this.boards.remove()
+    this.lists.remove()
+    this.cards.remove()
   }
 
   //Lists Methods
