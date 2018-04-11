@@ -4,14 +4,20 @@
 ## Description
 Recreation of the project management app, Trello - using Angular and NoSql database structure.
 
+##Hosted At:
+https://trill-o.firebaseapp.com
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.5.
 
 ##User Stories
 
+###Delivered:
 * As a user, I want to create boards for projects that I need to complete.
 * As a user, I want to add lists to the boards to represent phases of my project.
 * As a user, I want to add cards to my lists that represent each task that must be completed within the umbrella board.
 * As a user, I want to add, delete, update, and get details on every board, list, and card.
+
+###Still to come:
 * As a user, I want to move cards from one list to another.
 * As a user, I want to see the % of completeness of my boards.
 * As a user, I want a record of all completed tasks and projects.
